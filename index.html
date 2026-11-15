@@ -100,28 +100,44 @@
   .names b { display: block; font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 2.6vw, 40px); line-height: 1; }
   .names span { display: block; margin-top: 6px; color: var(--blush); font-weight: 600; }
 
-  /* ── набір ──────────────────────────────────── */
-  .join { overflow: hidden; }
-  .join { padding-top: 0; }
-  /* Fixed 2:1 crop (no max-height) so the framing is identical at every width; box capped at the 1600px source, never upscaled. */
-  .join-photo { width: 100%; max-width: 1600px; margin-inline: auto; aspect-ratio: 2 / 1; overflow: hidden; }
-  .join-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 83%; filter: grayscale(1) contrast(1.08);
-    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); }
+  /* ── набір: the team poster ─────────────────── */
+  .join { overflow: hidden; padding-top: 0; padding-bottom: clamp(48px, 5vw, 80px); }
+  /* Poster: the title sits on the canopy above the heads (first head at about 27% of the photo height); the photo is cropped from the bottom only. */
+  .join-poster { position: relative; width: 100%; max-width: 1600px; margin-inline: auto; container-type: inline-size; }
+  .join-photo { aspect-ratio: 1600 / 930; overflow: hidden; }
+  .join-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; filter: grayscale(1) contrast(1.08);
+    -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%); mask-image: linear-gradient(to bottom, #000 88%, transparent 100%); }
+  .join-poster::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 34%; z-index: 1; pointer-events: none;
+    background: linear-gradient(to bottom, rgb(19 19 19 / .92) 0, rgb(19 19 19 / .72) 45%, rgb(19 19 19 / 0) 100%); }
+  .join-title { position: absolute; z-index: 2; left: 0; right: 0; top: 2.6cqw; margin: 0; text-align: center; white-space: nowrap; font-size: 16.4cqw; line-height: .86; letter-spacing: .004em; color: #fff; }
   /* Wider than the source: the photo floats on the black band, so soften its side edges into it. */
   @media (min-width: 1601px) { .join-photo img {
-    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
     -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to bottom, #000 86%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 88%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
     mask-composite: intersect; } }
-  .join .wrap { padding-top: clamp(32px, 4vw, 56px); }
-  /* At 1024px and below the 2:1 crop leaves under 60px above the coach, so show the natural, uncropped ratio. */
-  @media (max-width: 1024px) { .join-photo { aspect-ratio: 1600 / 1020; } }
+  .join .wrap { max-width: 1600px; padding-top: clamp(8px, 1vw, 16px); display: grid; grid-template-columns: auto 1fr; grid-template-areas: "claims lede" "claims call"; column-gap: clamp(32px, 5vw, 88px); align-items: start; }
   .band-black .lede { color: var(--mist); }
-  .claims { margin-top: clamp(36px, 4vw, 52px); font-size: clamp(40px, 4.6vw, 70px); }
+  .join .lede { grid-area: lede; margin-top: 10px; }
+  .claims { grid-area: claims; font-size: clamp(40px, 4.6vw, 70px); }
   .claims span { display: block; }
   .claims .r { color: var(--red); }
-  .call { margin-top: clamp(36px, 4vw, 52px); display: grid; gap: 4px; }
-  .call small { font-size: 16px; font-weight: 600; color: var(--mist); }
+  /* The call: a red number that owns its column, sized from the column width so it stays on one line. */
+  .call { grid-area: call; align-self: end; margin-top: clamp(20px, 2vw, 32px); display: grid; gap: 6px; container-type: inline-size; }
+  .call small { font-size: clamp(16px, 1.3vw, 20px); font-weight: 600; color: var(--mist); }
+  .join .tel { color: var(--red); font-size: min(17cqw, 124px); white-space: nowrap; gap: .12em; letter-spacing: 0; }
+  .join .tel:focus-visible { outline: 3px solid #fff; outline-offset: 8px; }
+  @media (max-width: 640px) {
+    .join-poster { display: flex; flex-direction: column; }
+    .join-poster::before { display: none; }
+    .join-title { position: relative; top: auto; order: -1; text-align: left; white-space: normal; font-size: 27vw; line-height: .84; padding: 20px var(--pad) 0; margin-bottom: -7vw; text-shadow: 0 0 24px rgb(19 19 19 / .8); }
+    .join-photo { aspect-ratio: 1600 / 1020; }
+    .join-photo img { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 88%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 88%, transparent 100%); }
+    .join .wrap { display: block; padding-top: 12px; }
+    .join .lede { margin-top: 0; }
+    .claims { margin-top: 24px; font-size: 9.8vw; line-height: 1.02; }
+    .call { margin-top: 28px; }
+  }
   .tel { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; font-size: clamp(44px, 4.8vw, 68px); line-height: 1; letter-spacing: .01em; display: inline-flex; align-items: center; gap: 14px; width: fit-content; transition: color .2s ease, transform .16s var(--ease-out); }
   .tel svg { width: .5em; height: .5em; flex: none; transition: transform .25s var(--ease-out); }
 
@@ -171,6 +187,7 @@
   @media (hover: hover) and (pointer: fine) {
     .tel:hover { color: var(--red); }
     .contact .tel:hover { color: #fff; }
+    .join .tel:hover { color: #fff; }
     .tel:hover svg { transform: translate(3px, -3px); }
     a.pcard:hover { transform: translateY(-3px); border-color: var(--ink); }
     a.pcard:hover .go svg { transform: translate(3px, -3px); }
@@ -276,9 +293,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </section>
 
 <section class="band band-black join" id="join" aria-labelledby="join-h">
-  <div class="join-photo"><img src="img/team.webp" alt="Команда «Прикарпатські вовчиці» на трибуні стадіону" data-i18n-alt="join.alt" width="1600" height="1020" loading="lazy"></div>
+  <div class="join-poster">
+    <h2 class="display join-title" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
+    <div class="join-photo"><img src="img/team.webp" alt="Команда «Прикарпатські вовчиці» на трибуні стадіону" data-i18n-alt="join.alt" width="1600" height="1020" loading="lazy"></div>
+  </div>
   <div class="wrap">
-    <h2 class="display h2" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
     <p class="lede" data-i18n="join.p">Команда ДЮСШ-2 «Прикарпатські вовчиці» постійно проводить набір дівчат у команди різного віку.</p>
     <p class="display claims"><span data-i18n="join.c0">Будь-який вік</span><span data-i18n="join.c1">Тренування безкоштовні</span><span class="r" data-i18n="join.c2">У зручний для вас час</span></p>
     <div class="call">
