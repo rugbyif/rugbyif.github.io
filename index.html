@@ -79,17 +79,11 @@
   .nw { white-space: nowrap; }
   .lede { margin-top: 26px; max-width: 46ch; font-size: clamp(19px, 1.7vw, 23px); font-weight: 500; }
   .band-chalk .lede { color: var(--ink-2); }
-  .honours { margin-top: clamp(56px, 7vw, 96px); display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: clamp(28px, 3.4vw, 52px); }
-  .hon { border-top: 5px solid var(--ink); padding-top: 22px; }
-  .hon > b { display: block; font-size: clamp(44px, 4.6vw, 68px); }
-  .hon p, .hon li { margin-top: 14px; font-weight: 500; color: var(--ink-2); max-width: 34ch; }
-  .hon li + li { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--chalk-line); }
-  .hon-champ { border-top-color: var(--red); }
-  .hon-champ > b { font-size: clamp(64px, 8vw, 124px); color: var(--red); }
-  .hon-champ p { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink); font-weight: 600; }
-  .ages { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 12px; }
-  .ages span { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; font-size: clamp(26px, 2.2vw, 40px); line-height: 1; }
-  .hon .fine { font-size: 15px; margin-top: 12px; }
+  .team-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+  .ach h3 { font-size: clamp(30px, 3vw, 44px); line-height: 1; margin-bottom: 22px; }
+  .ach ul { border-top: 5px solid var(--ink); }
+  .ach li { text-wrap: pretty; padding: 16px 0; font-weight: 600; font-size: clamp(18px, 1.45vw, 21px); line-height: 1.35; color: var(--ink); }
+  .ach li + li { border-top: 1px solid var(--chalk-line); }
 
   /* ── гравчині збірної ───────────────────────── */
   .squad-h { font-size: clamp(42px, 5.8vw, 92px); max-width: 21ch; }
@@ -101,10 +95,12 @@
 
   /* ── набір ──────────────────────────────────── */
   .join { overflow: hidden; }
-  .join-photo { position: absolute; inset: 0 0 0 auto; width: 46%; }
-  .join-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 60%; filter: grayscale(1) contrast(1.12) brightness(.82);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%); mask-image: linear-gradient(to right, transparent 0%, #000 42%); }
-  .join-text { position: relative; max-width: min(620px, calc(54vw - 2 * var(--pad))); }
+  .join { padding-top: 0; }
+  .join-photo { width: 100%; aspect-ratio: 2 / 1; max-height: 760px; overflow: hidden; }
+  .join-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 83%; filter: grayscale(1) contrast(1.08);
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); }
+  .join .wrap { padding-top: clamp(32px, 4vw, 56px); }
+  @media (max-width: 640px) { .join-photo { aspect-ratio: 1600 / 1020; max-height: none; } }
   .band-black .lede { color: var(--mist); }
   .claims { margin-top: clamp(36px, 4vw, 52px); font-size: clamp(40px, 4.6vw, 70px); }
   .claims span { display: block; }
@@ -178,16 +174,13 @@
   @keyframes lift { from { opacity: 0; transform: translateY(12px); } }
 
   @media (max-width: 960px) {
-    .honours { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; gap: 0; }
+    .ach { margin-top: 48px; }
     .names { grid-template-columns: repeat(2, 1fr); column-gap: 18px; }
     .person, .person-rev { grid-template-columns: 1fr; }
     .person-rev .person-photo { order: -1; }
     .person-photo { max-width: 520px; }
     .pgrid, .contact { grid-template-columns: 1fr; }
-    .join { padding-top: 0; }
-    .join-text { max-width: 620px; }
-    .join-photo { position: relative; width: auto; aspect-ratio: 690 / 640; margin-bottom: -18%; }
-    .join-photo img { -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
   }
   @media (max-width: 560px) {
     .pcard { grid-template-columns: 80px 1fr; gap: 18px; padding: 22px; }
@@ -232,25 +225,22 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <section class="band band-chalk" id="team" aria-labelledby="team-h">
   <div class="wrap">
-    <h2 class="display h2" id="team-h" data-i18n="team.h2">Потужна команда</h2>
-    <p class="lede" data-i18n="team.p">Усі наші гравчині вже виступали на змаганнях. Сильні, згуртовані й <span class="nw">по-справжньому</span> потужні.</p>
-    <div class="honours">
-      <div class="hon hon-champ">
-        <b class="display" data-i18n="hon.champ">Чемпіони</b>
-        <p data-i18n="hon.champ.p">Вищої ліги чемпіонату України з регбі-7 серед жіночих команд</p>
+    <div class="team-grid">
+      <div>
+        <h2 class="display h2" id="team-h" data-i18n="team.h2">Потужна команда</h2>
+        <p class="lede" data-i18n="team.p">Усі наші гравчині вже виступали на змаганнях. Сильні, згуртовані й <span class="nw">по-справжньому</span> потужні.</p>
       </div>
-      <div class="hon">
-        <b class="display" data-i18n="hon.part">Учасниці</b>
+      <div class="ach">
+        <h3 class="display" data-i18n="ach.h3">Досягнення команди</h3>
         <ul>
-          <li data-i18n="hon.part.1">Супер ліги чемпіонату України з регбі-7 серед жіночих команд</li>
-          <li data-i18n="hon.part.2">Кубків України з регбі-7 серед жіночих команд</li>
+          <li data-i18n="ach.1">Учасники Супер ліги чемпіонату України з регбі 7 серед жіночих команд</li>
+          <li data-i18n="ach.2">Чемпіони Вищої ліги чемпіонату України з регбі 7 серед жіночих команд</li>
+          <li data-i18n="ach.3">Учасники Кубків України з регбі 7 серед жіночих команд</li>
+          <li data-i18n="ach.4">Бронзові призери чемпіонату України Ю-21 з регбі 7 серед жіночих команд</li>
+          <li data-i18n="ach.5">Бронзові призери чемпіонату України Ю-18 з регбі 7 серед дівчат</li>
+          <li data-i18n="ach.6">Бронзові призери чемпіонату України Ю-16 з регбі 7 серед дівчат</li>
+          <li data-i18n="ach.7">Бронзові призери чемпіонату України Ю-14 з регбі 7 серед дівчат</li>
         </ul>
-      </div>
-      <div class="hon">
-        <b class="display" data-i18n="hon.bronze">Бронза</b>
-        <p data-i18n="hon.bronze.p">Призерки чемпіонатів України з регбі-7 у чотирьох вікових категоріях</p>
-        <div class="ages" data-i18n="hon.ages"><span>Ю-21</span><span>Ю-18</span><span>Ю-16</span><span>Ю-14</span></div>
-        <p class="fine" data-i18n="hon.fine">Ю-21 серед жіночих команд, Ю-18, Ю-16 і Ю-14 серед дівчат</p>
       </div>
     </div>
   </div>
@@ -275,16 +265,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 </section>
 
 <section class="band band-black join" id="join" aria-labelledby="join-h">
-  <div class="join-photo"><img src="img/training.webp" alt="Команда на тренуванні з фітнесу" data-i18n-alt="join.alt" width="690" height="640" loading="lazy"></div>
+  <div class="join-photo"><img src="img/team.webp" alt="Команда «Прикарпатські вовчиці» на трибуні стадіону" data-i18n-alt="join.alt" width="1600" height="1020" loading="lazy"></div>
   <div class="wrap">
-    <div class="join-text">
-      <h2 class="display h2" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
-      <p class="lede" data-i18n="join.p">Команда ДЮСШ-2 «Прикарпатські вовчиці» постійно проводить набір дівчат у команди різного віку.</p>
-      <p class="display claims"><span data-i18n="join.c0">Будь-який вік</span><span data-i18n="join.c1">Тренування безкоштовні</span><span class="r" data-i18n="join.c2">У зручний для вас час</span></p>
-      <div class="call">
-        <small data-i18n="join.call">Записатися на тренування</small>
-        <a class="tel" href="tel:+380978377746">097 837 77 46 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M143.52,112.48a12,12,0,0,1,0-17L171,68H160a12,12,0,0,1,0-24h40a12,12,0,0,1,12,12V96a12,12,0,0,1-24,0V85l-27.51,27.51a12,12,0,0,1-17,0Zm84.33,71.1A60.27,60.27,0,0,1,168,236C86.39,236,20,169.61,20,88A60.27,60.27,0,0,1,72.42,28.15,20.05,20.05,0,0,1,93.2,40l21.11,47.13a1.42,1.42,0,0,0,.08.18,20,20,0,0,1-1.66,18.83,10.67,10.67,0,0,1-.85,1.15L92.82,130c7.06,12.84,20.5,26.16,33.49,33.21l22.31-19a13.08,13.08,0,0,1,1.12-.84,19.91,19.91,0,0,1,19-1.74l.18.08L216,162.8A20.06,20.06,0,0,1,227.85,183.58Zm-24.31-.06-42-18.81-22.43,19.07a11.63,11.63,0,0,1-1.11.85A20,20,0,0,1,118.31,186c-19.48-9.4-38.89-28.68-48.31-48a20,20,0,0,1,1.28-19.64,10.75,10.75,0,0,1,.86-1.15L91.3,94.5l-18.82-42A36.29,36.29,0,0,0,44,88,124.15,124.15,0,0,0,168,212,36.29,36.29,0,0,0,203.54,183.52Z"/></svg></a>
-      </div>
+    <h2 class="display h2" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
+    <p class="lede" data-i18n="join.p">Команда ДЮСШ-2 «Прикарпатські вовчиці» постійно проводить набір дівчат у команди різного віку.</p>
+    <p class="display claims"><span data-i18n="join.c0">Будь-який вік</span><span data-i18n="join.c1">Тренування безкоштовні</span><span class="r" data-i18n="join.c2">У зручний для вас час</span></p>
+    <div class="call">
+      <small data-i18n="join.call">Записатися на тренування</small>
+      <a class="tel" href="tel:+380978377746">097 837 77 46 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M143.52,112.48a12,12,0,0,1,0-17L171,68H160a12,12,0,0,1,0-24h40a12,12,0,0,1,12,12V96a12,12,0,0,1-24,0V85l-27.51,27.51a12,12,0,0,1-17,0Zm84.33,71.1A60.27,60.27,0,0,1,168,236C86.39,236,20,169.61,20,88A60.27,60.27,0,0,1,72.42,28.15,20.05,20.05,0,0,1,93.2,40l21.11,47.13a1.42,1.42,0,0,0,.08.18,20,20,0,0,1-1.66,18.83,10.67,10.67,0,0,1-.85,1.15L92.82,130c7.06,12.84,20.5,26.16,33.49,33.21l22.31-19a13.08,13.08,0,0,1,1.12-.84,19.91,19.91,0,0,1,19-1.74l.18.08L216,162.8A20.06,20.06,0,0,1,227.85,183.58Zm-24.31-.06-42-18.81-22.43,19.07a11.63,11.63,0,0,1-1.11.85A20,20,0,0,1,118.31,186c-19.48-9.4-38.89-28.68-48.31-48a20,20,0,0,1,1.28-19.64,10.75,10.75,0,0,1,.86-1.15L91.3,94.5l-18.82-42A36.29,36.29,0,0,0,44,88,124.15,124.15,0,0,0,168,212,36.29,36.29,0,0,0,203.54,183.52Z"/></svg></a>
     </div>
   </div>
 </section>
@@ -358,17 +346,16 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     "hero.l1": "Women’s rugby",
     "hero.l2": "Ivano-Frankivsk",
     "hero.sub": "Prykarpatski Vovchytsi, Youth Sports School No.&nbsp;2. <b>We recruit girls all year round, and training is free.</b>",
-    "team.h2": "A powerful team",
+    "team.h2": "A&nbsp;powerful team",
     "team.p": "Every one of our players has already competed. Strong, united and truly powerful.",
-    "hon.champ": "Champions",
-    "hon.champ.p": "of the Higher League of the Ukrainian women’s rugby sevens championship",
-    "hon.part": "Competed",
-    "hon.part.1": "in the Super League of the Ukrainian women’s rugby sevens championship",
-    "hon.part.2": "in the Ukrainian Cups in women’s rugby sevens",
-    "hon.bronze": "Bronze",
-    "hon.bronze.p": "Medalists of the Ukrainian rugby sevens championships in four age groups",
-    "hon.ages": "<span>U-21</span><span>U-18</span><span>U-16</span><span>U-14</span>",
-    "hon.fine": "U-21 women, U-18, U-16 and U-14 girls",
+    "ach.h3": "Team achievements",
+    "ach.1": "Super League of the Ukrainian Rugby Sevens Championship, women’s teams: participants",
+    "ach.2": "Higher League of the Ukrainian Rugby Sevens Championship, women’s teams: champions",
+    "ach.3": "Ukrainian Rugby Sevens Cups, women’s teams: participants",
+    "ach.4": "Ukrainian Rugby Sevens Championship U-21, women’s teams: bronze medalists",
+    "ach.5": "Ukrainian Rugby Sevens Championship U-18, girls: bronze medalists",
+    "ach.6": "Ukrainian Rugby Sevens Championship U-16, girls: bronze medalists",
+    "ach.7": "Ukrainian Rugby Sevens Championship U-14, girls: bronze medalists",
     "squad.h2": "<em>10</em> of our players have played for Ukraine’s junior national team",
     "n1.s": "Bodnar", "n1.f": "Yuliia",
     "n2.s": "Kosinska", "n2.f": "Ilona",
@@ -386,7 +373,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     "join.c1": "Training is free",
     "join.c2": "At a time that suits you",
     "join.call": "Book a training session",
-    "join.alt": "The team at a fitness training session",
+    "join.alt": "Prykarpatski Vovchytsi team on the stadium stands",
     "coach.h2": "Bohdan Mykytiuk",
     "coach.role": "Head coach",
     "coach.p": "Coaches Prykarpatski Vovchytsi and prepares the team for Ukrainian championships and cups.",
