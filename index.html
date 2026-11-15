@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Прикарпатські вовчиці | жіноче регбі, Івано-Франківськ</title>
+<meta name="description" content="ДЮСШ-2 «Прикарпатські вовчиці»: жіноча команда з регбі-7 в Івано-Франківську. Чемпіони Вищої ліги України. Постійний набір дівчат, тренування безкоштовні.">
+<meta name="theme-color" content="#131313">
+<link rel="canonical" href="https://if7g.pp.ua/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Прикарпатські вовчиці">
+<meta property="og:title" content="Прикарпатські вовчиці | жіноче регбі, Івано-Франківськ">
+<meta property="og:description" content="ДЮСШ-2 «Прикарпатські вовчиці»: жіноча команда з регбі-7 в Івано-Франківську. Чемпіони Вищої ліги України. Постійний набір дівчат, тренування безкоштовні.">
+<meta property="og:image" content="https://if7g.pp.ua/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://if7g.pp.ua/">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@800;900&family=Fira+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #131313;
+    --black-line: #2E2E2E;
+    --chalk: #EFF0EC;
+    --chalk-line: #CFD1CB;
+    --paper: #F8F8F6;
+    --red: #C61F2B;
+    --red-press: #A91823;
+    --ink: #131313;
+    --ink-2: #4C4F4A;      /* другорядний текст на крейді, 7:1 */
+    --mist: #A8A9A4;       /* другорядний текст на чорному, 7.6:1 */
+    --blush: #FBE4E5;      /* другорядний текст на червоному, 4.7:1 */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --pad: clamp(20px, 3.4vw, 48px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--black); scrollbar-color: #4A4A4A var(--black); -webkit-text-size-adjust: 100%; }
+  body { font: 400 18px/1.55 "Fira Sans", system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  ol, ul { list-style: none; }
+  p { text-wrap: pretty; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--pad); }
+  .display { font-family: "Fira Sans Extra Condensed", "Fira Sans", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -0.005em; line-height: .9; text-wrap: balance; }
+  .h2 { font-size: clamp(48px, 7.4vw, 112px); }
+  .h2, .squad-h, .claims, .person h2 { line-height: 1.04; }
+  :focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+
+  /* смуги-«хупи», як на регбійній футболці: кожен етап сторінки має свій колір */
+  .band { padding: clamp(76px, 10vw, 140px) 0; position: relative; }
+  .band-black { background: var(--black); color: #fff; }
+  .band-chalk { background: var(--chalk); color: var(--ink); }
+  .band-red   { background: var(--red); color: #fff; }
+  .band-black ::selection { background: var(--red); color: #fff; }
+  .band-chalk ::selection { background: var(--red); color: #fff; }
+  .band-red   ::selection { background: var(--black); color: #fff; }
+
+  /* ── перший екран ───────────────────────────── */
+  .hero { padding: 0; overflow: hidden; }
+  .top { padding-top: 28px; padding-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { min-width: 0; display: inline-flex; align-items: center; gap: 14px; font-weight: 800; font-size: 17px; letter-spacing: .01em; }
+  .brand img { width: 46px; height: 46px; border-radius: 50%; }
+  .hero-body { padding-top: clamp(48px, 9vh, 112px); padding-bottom: clamp(56px, 9vh, 104px); }
+  .hero h1 { line-height: .84; }
+  .hero .line { display: block; overflow: hidden; padding-top: .05em; margin-top: -.05em; }
+  .hero .line > span { display: inline-block; white-space: nowrap; }
+  .hero .l1 { font-size: min(17.2vw, 252px); }
+  .hero .l2 { font-size: min(10.9vw, 160px); color: var(--red); }
+  .hero-sub { margin-top: clamp(28px, 4vh, 44px); max-width: 40ch; font-size: clamp(18px, 1.6vw, 22px); color: var(--mist); }
+  .hero-sub b { color: #fff; font-weight: 700; }
+
+  /* ── команда і досягнення ───────────────────── */
+  .nw { white-space: nowrap; }
+  .lede { margin-top: 26px; max-width: 46ch; font-size: clamp(19px, 1.7vw, 23px); font-weight: 500; }
+  .band-chalk .lede { color: var(--ink-2); }
+  .honours { margin-top: clamp(56px, 7vw, 96px); display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: clamp(28px, 3.4vw, 52px); }
+  .hon { border-top: 5px solid var(--ink); padding-top: 22px; }
+  .hon > b { display: block; font-size: clamp(44px, 4.6vw, 68px); }
+  .hon p, .hon li { margin-top: 14px; font-weight: 500; color: var(--ink-2); max-width: 34ch; }
+  .hon li + li { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--chalk-line); }
+  .hon-champ { border-top-color: var(--red); }
+  .hon-champ > b { font-size: clamp(64px, 8vw, 124px); color: var(--red); }
+  .hon-champ p { font-size: clamp(19px, 1.6vw, 22px); color: var(--ink); font-weight: 600; }
+  .ages { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 12px; }
+  .ages span { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; font-size: clamp(26px, 2.2vw, 40px); line-height: 1; }
+  .hon .fine { font-size: 15px; margin-top: 12px; }
+
+  /* ── гравчині збірної ───────────────────────── */
+  .squad-h { font-size: clamp(42px, 5.8vw, 92px); max-width: 21ch; }
+  .squad-h em { font-style: normal; color: var(--black); }
+  .names { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 24px; row-gap: 28px; }
+  .names li { border-top: 2px solid rgb(255 255 255 / .55); padding: 18px 0 0; }
+  .names b { display: block; font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 2.6vw, 40px); line-height: 1; }
+  .names span { display: block; margin-top: 6px; color: var(--blush); font-weight: 600; }
+
+  /* ── набір ──────────────────────────────────── */
+  .join { overflow: hidden; }
+  .join-photo { position: absolute; inset: 0 0 0 auto; width: 46%; }
+  .join-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 60%; filter: grayscale(1) contrast(1.12) brightness(.82);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%); mask-image: linear-gradient(to right, transparent 0%, #000 42%); }
+  .join-text { position: relative; max-width: min(620px, calc(54vw - 2 * var(--pad))); }
+  .band-black .lede { color: var(--mist); }
+  .claims { margin-top: clamp(36px, 4vw, 52px); font-size: clamp(40px, 4.6vw, 70px); }
+  .claims span { display: block; }
+  .claims .r { color: var(--red); }
+  .call { margin-top: clamp(36px, 4vw, 52px); display: grid; gap: 4px; }
+  .call small { font-size: 16px; font-weight: 600; color: var(--mist); }
+  .tel { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; font-size: clamp(44px, 4.8vw, 68px); line-height: 1; letter-spacing: .01em; display: inline-flex; align-items: center; gap: 14px; width: fit-content; transition: color .2s ease, transform .16s var(--ease-out); }
+  .tel svg { width: .5em; height: .5em; flex: none; transition: transform .25s var(--ease-out); }
+
+  /* ── тренер і амбасадорка ───────────────────── */
+  .person { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
+  .person-rev { grid-template-columns: 7fr 5fr; }
+  .person-photo img { width: 100%; filter: grayscale(1) contrast(1.06); }
+  .person h2 { font-size: clamp(46px, 5.8vw, 92px); }
+  .role { margin-top: 18px; font-size: clamp(18px, 1.5vw, 21px); font-weight: 800; }
+  .band-chalk .role { color: var(--red); }
+  .person-text p:not(.role) { margin-top: 22px; max-width: 50ch; font-size: clamp(18px, 1.4vw, 20px); }
+  .band-chalk .person-text p:not(.role) { color: var(--ink-2); }
+  .band-red .person-text p:not(.role) { color: var(--blush); }
+
+  /* ── партнери ───────────────────────────────── */
+  .pgrid { margin-top: clamp(44px, 5vw, 72px); display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pcard { background: var(--paper); border: 1px solid var(--chalk-line); padding: 32px; display: grid; grid-template-columns: 116px 1fr; gap: 28px; align-items: center; transition: transform .25s var(--ease-out), border-color .2s ease; }
+  .pcard img { width: 116px; height: 116px; object-fit: contain; mix-blend-mode: multiply; }
+  .pcard img.round { border-radius: 50%; mix-blend-mode: normal; }
+  .pcard b { display: block; font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; }
+  .pcard p { margin-top: 8px; color: var(--ink-2); font-weight: 500; }
+  .pcard .go { margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--red); }
+  .pcard .go svg { width: 1em; height: 1em; flex: none; transition: transform .25s var(--ease-out); }
+  a.pcard:active { transform: scale(.985); }
+
+  /* ── контакти ───────────────────────────────── */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: stretch; }
+  .contact .h2 { font-size: clamp(40px, 5.8vw, 92px); text-wrap: balance; }
+  .contact .tel { margin-top: 36px; color: var(--red); font-size: clamp(52px, 5.6vw, 84px); }
+  .rows { margin-top: 36px; display: grid; gap: 14px; }
+  .rows div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; border-top: 1px solid var(--black-line); padding-top: 14px; }
+  .rows dt { color: var(--mist); font-weight: 600; }
+  .rows dd { font-weight: 600; }
+  .map { min-height: 420px; background: #1E1E1E; position: relative; }
+  .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.05); transition: filter .5s ease; }
+  .foot { margin-top: clamp(72px, 9vw, 120px); padding-top: 26px; position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--mist); font-size: 15px; font-weight: 500; }
+  .foot::before { content: ""; position: absolute; top: 0; left: var(--pad); right: var(--pad); border-top: 1px solid var(--black-line); }
+  #contact { padding-bottom: clamp(40px, 4vw, 48px); }
+  .lang { display: inline-flex; border: 1px solid #3A3A3A; }
+  .lang button { font: 800 14px/1 "Fira Sans", sans-serif; letter-spacing: .04em; color: var(--mist); background: transparent; border: 0; padding: 0 14px; min-height: 44px; cursor: pointer; transition: color .2s ease, background-color .2s ease, transform .16s var(--ease-out); }
+  .lang button[aria-pressed="true"] { background: #fff; color: var(--black); }
+  .lang button:active { transform: scale(.96); }
+  .lang button:focus-visible { outline-color: var(--red); }
+  .tel:active { transform: scale(.98); }
+
+  /* ховер лише там, де є миша */
+  @media (hover: hover) and (pointer: fine) {
+    .tel:hover { color: var(--red); }
+    .contact .tel:hover { color: #fff; }
+    .tel:hover svg { transform: translate(3px, -3px); }
+    a.pcard:hover { transform: translateY(-3px); border-color: var(--ink); }
+    a.pcard:hover .go svg { transform: translate(3px, -3px); }
+    .map:hover iframe { filter: none; }
+    .lang button[aria-pressed="false"]:hover { color: #fff; }
+    .rows dd a:hover { text-decoration: underline; text-underline-offset: .2em; }
+  }
+
+  /* одна авторська мить: заголовок піднімається з-під обрізу */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .line > span { animation: rise 1.05s var(--ease-out) both; }
+    .hero .l2 > span { animation-delay: .1s; }
+    .hero-sub { animation: lift .8s var(--ease-out) .42s both; }
+  }
+  @keyframes rise { from { transform: translateY(105%); } }
+  @keyframes lift { from { opacity: 0; transform: translateY(12px); } }
+
+  @media (max-width: 960px) {
+    .honours { grid-template-columns: 1fr; }
+    .names { grid-template-columns: repeat(2, 1fr); column-gap: 18px; }
+    .person, .person-rev { grid-template-columns: 1fr; }
+    .person-rev .person-photo { order: -1; }
+    .person-photo { max-width: 520px; }
+    .pgrid, .contact { grid-template-columns: 1fr; }
+    .join { padding-top: 0; }
+    .join-text { max-width: 620px; }
+    .join-photo { position: relative; width: auto; aspect-ratio: 690 / 640; margin-bottom: -18%; }
+    .join-photo img { -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+  }
+  @media (max-width: 560px) {
+    .pcard { grid-template-columns: 80px 1fr; gap: 18px; padding: 22px; }
+    .pcard img { width: 80px; height: 80px; }
+    .pcard b { font-size: 28px; }
+    .brand { gap: 10px; font-size: 15px; }
+    .brand img { width: 40px; height: 40px; }
+    .top .lang button { padding: 0 12px; }
+    .map { min-height: 320px; }
+    .rows div { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<!--
+THESIS: сторінка як регбійна футболка з «хупами». Кожна секція є суцільною смугою свого кольору (чорна, крейдяна, червона), замість стандартного світлого лендингу з картками.
+OWN-WORLD: три кольори форми (#131313, #EFF0EC, #C61F2B), вузький атлетичний гротеск Fira Sans Extra Condensed великими літерами, чорно-білі фото, прямі кути, товсті верхні лінійки як на табло. Карток немає, крім партнерів.
+STORY: відвідувачка бачить, що це сильна жіноча команда (титули, 10 гравчинь збірної), дізнається, що набір постійний і безкоштовний, і телефонує.
+FIRST VIEWPORT: чорна смуга, лого з назвою вгорі зліва; дворядковий постер-заголовок на всю ширину, другий рядок червоний; одне речення.
+FORM: задано замовником (смуги замість віконець), без жеребкування концепції.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+
+<div class="band band-black hero">
+  <header class="wrap top">
+    <a class="brand" href="#top"><img src="img/logo.webp" alt="" width="92" height="95"><span data-i18n="brand">Прикарпатські вовчиці</span></a>
+    <div class="lang" role="group" aria-label="Мова / Language">
+      <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+  <main id="top">
+    <div class="wrap hero-body">
+      <h1 class="display">
+        <span class="line l1"><span data-i18n="hero.l1">Жіноче регбі</span></span>
+        <span class="line l2"><span data-i18n="hero.l2">Івано-Франківська</span></span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">Команда ДЮСШ-2 «Прикарпатські вовчиці». <b>Постійний набір дівчат, тренування безкоштовні.</b></p>
+    </div>
+  </main>
+</div>
+
+<section class="band band-chalk" id="team" aria-labelledby="team-h">
+  <div class="wrap">
+    <h2 class="display h2" id="team-h" data-i18n="team.h2">Потужна команда</h2>
+    <p class="lede" data-i18n="team.p">Усі наші гравчині вже виступали на змаганнях. Сильні, згуртовані й <span class="nw">по-справжньому</span> потужні.</p>
+    <div class="honours">
+      <div class="hon hon-champ">
+        <b class="display" data-i18n="hon.champ">Чемпіони</b>
+        <p data-i18n="hon.champ.p">Вищої ліги чемпіонату України з регбі-7 серед жіночих команд</p>
+      </div>
+      <div class="hon">
+        <b class="display" data-i18n="hon.part">Учасниці</b>
+        <ul>
+          <li data-i18n="hon.part.1">Супер ліги чемпіонату України з регбі-7 серед жіночих команд</li>
+          <li data-i18n="hon.part.2">Кубків України з регбі-7 серед жіночих команд</li>
+        </ul>
+      </div>
+      <div class="hon">
+        <b class="display" data-i18n="hon.bronze">Бронза</b>
+        <p data-i18n="hon.bronze.p">Призерки чемпіонатів України з регбі-7 у чотирьох вікових категоріях</p>
+        <div class="ages" data-i18n="hon.ages"><span>Ю-21</span><span>Ю-18</span><span>Ю-16</span><span>Ю-14</span></div>
+        <p class="fine" data-i18n="hon.fine">Ю-21 серед жіночих команд, Ю-18, Ю-16 і Ю-14 серед дівчат</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-red" id="squad" aria-labelledby="squad-h">
+  <div class="wrap">
+    <h2 class="display squad-h" id="squad-h" data-i18n="squad.h2"><em>10</em> наших гравчинь грали за юніорську збірну України</h2>
+    <ol class="names">
+      <li><b data-i18n="n1.s">Боднар</b><span data-i18n="n1.f">Юлія</span></li>
+      <li><b data-i18n="n2.s">Косінська</b><span data-i18n="n2.f">Ілона</span></li>
+      <li><b data-i18n="n3.s">Василишин</b><span data-i18n="n3.f">Анастасія</span></li>
+      <li><b data-i18n="n4.s">Попович</b><span data-i18n="n4.f">Єльвіра</span></li>
+      <li><b data-i18n="n5.s">Шпинта</b><span data-i18n="n5.f">Ірина</span></li>
+      <li><b data-i18n="n6.s">Калин</b><span data-i18n="n6.f">Марія</span></li>
+      <li><b data-i18n="n7.s">Болотська</b><span data-i18n="n7.f">Марія</span></li>
+      <li><b data-i18n="n8.s">Болотська</b><span data-i18n="n8.f">Дарія</span></li>
+      <li><b data-i18n="n9.s">Маслій</b><span data-i18n="n9.f">Надія</span></li>
+      <li><b data-i18n="n10.s">Полицька</b><span data-i18n="n10.f">Діана</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band-black join" id="join" aria-labelledby="join-h">
+  <div class="join-photo"><img src="img/training.webp" alt="Команда на тренуванні з фітнесу" data-i18n-alt="join.alt" width="690" height="640" loading="lazy"></div>
+  <div class="wrap">
+    <div class="join-text">
+      <h2 class="display h2" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
+      <p class="lede" data-i18n="join.p">Команда ДЮСШ-2 «Прикарпатські вовчиці» постійно проводить набір дівчат у команди різного віку.</p>
+      <p class="display claims"><span data-i18n="join.c1">Тренування безкоштовні</span><span class="r" data-i18n="join.c2">У зручний для вас час</span></p>
+      <div class="call">
+        <small data-i18n="join.call">Записатися на тренування</small>
+        <a class="tel" href="tel:+380978377746">097 837 77 46 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M143.52,112.48a12,12,0,0,1,0-17L171,68H160a12,12,0,0,1,0-24h40a12,12,0,0,1,12,12V96a12,12,0,0,1-24,0V85l-27.51,27.51a12,12,0,0,1-17,0Zm84.33,71.1A60.27,60.27,0,0,1,168,236C86.39,236,20,169.61,20,88A60.27,60.27,0,0,1,72.42,28.15,20.05,20.05,0,0,1,93.2,40l21.11,47.13a1.42,1.42,0,0,0,.08.18,20,20,0,0,1-1.66,18.83,10.67,10.67,0,0,1-.85,1.15L92.82,130c7.06,12.84,20.5,26.16,33.49,33.21l22.31-19a13.08,13.08,0,0,1,1.12-.84,19.91,19.91,0,0,1,19-1.74l.18.08L216,162.8A20.06,20.06,0,0,1,227.85,183.58Zm-24.31-.06-42-18.81-22.43,19.07a11.63,11.63,0,0,1-1.11.85A20,20,0,0,1,118.31,186c-19.48-9.4-38.89-28.68-48.31-48a20,20,0,0,1,1.28-19.64,10.75,10.75,0,0,1,.86-1.15L91.3,94.5l-18.82-42A36.29,36.29,0,0,0,44,88,124.15,124.15,0,0,0,168,212,36.29,36.29,0,0,0,203.54,183.52Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-chalk" id="coach" aria-labelledby="coach-h">
+  <div class="wrap person">
+    <figure class="person-photo"><img src="img/coach.webp" alt="Тренер Богдан Микитюк з мʼячем для регбі" data-i18n-alt="coach.alt" width="960" height="955" loading="lazy"></figure>
+    <div class="person-text">
+      <h2 class="display" id="coach-h" data-i18n="coach.h2">Микитюк Богдан Степанович</h2>
+      <p class="role" data-i18n="coach.role">Тренер команди</p>
+      <p data-i18n="coach.p">Тренує «Прикарпатських вовчиць» і готує команду до чемпіонатів і кубків України.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-red" id="amb" aria-labelledby="amb-h">
+  <div class="wrap person person-rev">
+    <div class="person-text">
+      <h2 class="display" id="amb-h" data-i18n="amb.h2">Петраш Анастасія Дмитрівна</h2>
+      <p class="role" data-i18n="amb.role">Амбасадорка жіночого регбі Івано-Франківської області</p>
+      <p data-i18n="amb.p">Популяризує жіноче регбі в області й надихає дівчат спробувати себе в цьому спорті.</p>
+    </div>
+    <figure class="person-photo"><img src="img/ambassador.webp" alt="Анастасія Петраш, амбасадорка жіночого регбі" data-i18n-alt="amb.alt" width="677" height="916" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="band band-chalk" id="partners" aria-labelledby="partners-h">
+  <div class="wrap">
+    <h2 class="display h2" id="partners-h" data-i18n="partners.h2">Наші партнери</h2>
+    <div class="pgrid">
+      <div class="pcard">
+        <img src="img/herbalife.webp" alt="Herbalife24" width="232" height="232" loading="lazy">
+        <div><b>Herbalife24</b><p data-i18n="partners.hb">Спортивне харчування</p></div>
+      </div>
+      <a class="pcard" href="https://www.instagram.com/track.shoes_ua" target="_blank" rel="noopener">
+        <img class="round" src="img/track.webp" alt="Track Shoes UA" width="150" height="150" loading="lazy">
+        <div><b>Track Shoes UA</b><p data-i18n="partners.ts">Легкоатлетичне взуття та шиповки</p><span class="go">Instagram <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band band-black" id="contact" aria-labelledby="contact-h">
+  <div class="wrap contact">
+    <div>
+      <h2 class="display h2" id="contact-h" data-i18n="contact.h2">Приходьте на&nbsp;тренування</h2>
+      <a class="tel" href="tel:+380978377746">097 837 77 46</a>
+      <dl class="rows">
+        <div><dt data-i18n="contact.addr.t">Адреса</dt><dd data-i18n="contact.addr">м. Івано-Франківськ, вул. Довга, 60, 2 поверх</dd></div>
+        <div><dt data-i18n="contact.mail.t">Пошта</dt><dd><a href="mailto:rugbyif@ukr.net">rugbyif@ukr.net</a></dd></div>
+      </dl>
+    </div>
+    <div class="map">
+      <iframe title="Мапа: вул. Довга, 60, Івано-Франківськ" data-i18n-title="contact.map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%94%D0%BE%D0%B2%D0%B3%D0%B0%2C%2060%2C%20%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA&z=16&hl=uk&output=embed"></iframe>
+    </div>
+  </div>
+  <footer class="wrap foot">
+    <span data-i18n="foot">ДЮСШ-2 «Прикарпатські вовчиці», Івано-Франківськ</span>
+    <div class="lang" role="group" aria-label="Мова / Language">
+      <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </footer>
+</section>
+
+<script>
+  // Переклад. Українська стоїть у розмітці, англійська тут. Без тире, як і в українській.
+  const EN = {
+    "brand": "Prykarpatski Vovchytsi",
+    "hero.l1": "Women’s rugby",
+    "hero.l2": "Ivano-Frankivsk",
+    "hero.sub": "Prykarpatski Vovchytsi, Youth Sports School No.&nbsp;2. <b>We recruit girls all year round, and training is free.</b>",
+    "team.h2": "A powerful team",
+    "team.p": "Every one of our players has already competed. Strong, united and truly powerful.",
+    "hon.champ": "Champions",
+    "hon.champ.p": "of the Higher League of the Ukrainian women’s rugby sevens championship",
+    "hon.part": "Competed",
+    "hon.part.1": "in the Super League of the Ukrainian women’s rugby sevens championship",
+    "hon.part.2": "in the Ukrainian Cups in women’s rugby sevens",
+    "hon.bronze": "Bronze",
+    "hon.bronze.p": "Medalists of the Ukrainian rugby sevens championships in four age groups",
+    "hon.ages": "<span>U-21</span><span>U-18</span><span>U-16</span><span>U-14</span>",
+    "hon.fine": "U-21 women, U-18, U-16 and U-14 girls",
+    "squad.h2": "<em>10</em> of our players have played for Ukraine’s junior national team",
+    "n1.s": "Bodnar", "n1.f": "Yuliia",
+    "n2.s": "Kosinska", "n2.f": "Ilona",
+    "n3.s": "Vasylyshyn", "n3.f": "Anastasiia",
+    "n4.s": "Popovych", "n4.f": "Yelvira",
+    "n5.s": "Shpynta", "n5.f": "Iryna",
+    "n6.s": "Kalyn", "n6.f": "Mariia",
+    "n7.s": "Bolotska", "n7.f": "Mariia",
+    "n8.s": "Bolotska", "n8.f": "Dariia",
+    "n9.s": "Maslii", "n9.f": "Nadiia",
+    "n10.s": "Polytska", "n10.f": "Diana",
+    "join.h2": "Join the team",
+    "join.p": "Prykarpatski Vovchytsi recruits girls into teams of different ages all year round.",
+    "join.c1": "Training is free",
+    "join.c2": "At a time that suits you",
+    "join.call": "Book a training session",
+    "join.alt": "The team at a fitness training session",
+    "coach.h2": "Bohdan Mykytiuk",
+    "coach.role": "Head coach",
+    "coach.p": "Coaches Prykarpatski Vovchytsi and prepares the team for Ukrainian championships and cups.",
+    "coach.alt": "Coach Bohdan Mykytiuk holding a rugby ball",
+    "amb.h2": "Anastasiia Petrash",
+    "amb.role": "Ambassador of women’s rugby in the Ivano-Frankivsk region",
+    "amb.p": "Promotes women’s rugby across the region and inspires girls to give the sport a try.",
+    "amb.alt": "Anastasiia Petrash, ambassador of women’s rugby",
+    "partners.h2": "Our partners",
+    "partners.hb": "Sports nutrition",
+    "partners.ts": "Track and field shoes and spikes",
+    "contact.h2": "Come and train with\u00A0us",
+    "contact.addr.t": "Address",
+    "contact.addr": "60 Dovha St., 2nd floor, Ivano-Frankivsk",
+    "contact.mail.t": "Email",
+    "contact.map": "Map: 60 Dovha St., Ivano-Frankivsk",
+    "foot": "Prykarpatski Vovchytsi, Youth Sports School No.&nbsp;2, Ivano-Frankivsk"
+  };
+
+  const textNodes = [...document.querySelectorAll('[data-i18n]')];
+  const altNodes = [...document.querySelectorAll('[data-i18n-alt]')];
+  const titleNodes = [...document.querySelectorAll('[data-i18n-title]')];
+  textNodes.forEach(el => { el.dataset.uk = el.innerHTML; });
+  altNodes.forEach(el => { el.dataset.ukAlt = el.alt; });
+  titleNodes.forEach(el => { el.dataset.ukTitle = el.title; });
+  const ukTitle = document.title, ukDesc = document.querySelector('meta[name=description]').content;
+
+  function setLang(lang) {
+    const en = lang === 'en';
+    document.documentElement.lang = en ? 'en' : 'uk';
+    textNodes.forEach(el => { const k = el.dataset.i18n; el.innerHTML = en && EN[k] != null ? EN[k] : el.dataset.uk; });
+    altNodes.forEach(el => { const k = el.dataset.i18nAlt; el.alt = en && EN[k] ? EN[k] : el.dataset.ukAlt; });
+    titleNodes.forEach(el => { const k = el.dataset.i18nTitle; el.title = en && EN[k] ? EN[k] : el.dataset.ukTitle; });
+    document.title = en ? "Prykarpatski Vovchytsi | Women’s rugby, Ivano-Frankivsk" : ukTitle;
+    document.querySelector('meta[name=description]').content = en
+      ? "Prykarpatski Vovchytsi: women’s rugby sevens team in Ivano-Frankivsk. Higher League champions of Ukraine. Free training, girls recruited all year round."
+      : ukDesc;
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    try { localStorage.setItem('if7g_lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  let start = 'uk';
+  try { start = localStorage.getItem('if7g_lang') || 'uk'; } catch (e) {}
+  const q = new URLSearchParams(location.search).get('lang');
+  if (q === 'en' || q === 'uk') start = q;
+  if (start === 'en') setLang('en');
+
+  // Постер: обидва рядки заголовка точно на всю ширину колонки, для будь-якої мови й шрифту.
+  // CSS-розміри у vw лишаються запасним варіантом, якщо скрипт не спрацює.
+  const heroBody = document.querySelector('.hero-body');
+  function fitHero() {
+    const cs = getComputedStyle(heroBody);
+    const w = heroBody.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    heroBody.querySelectorAll('.line').forEach(line => {
+      line.style.fontSize = '';
+      const fs = parseFloat(getComputedStyle(line).fontSize);
+      const sw = line.firstElementChild.getBoundingClientRect().width;
+      if (sw > 0) line.style.fontSize = Math.min(fs * w * 0.995 / sw, 300) + 'px';
+    });
+  }
+  document.fonts.ready.then(fitHero);
+  let lastW = 0;
+  new ResizeObserver(([e]) => { if (e.contentRect.width !== lastW) { lastW = e.contentRect.width; fitHero(); } }).observe(heroBody);
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', fitHero));
+</script>
+</body>
+</html>
