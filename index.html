@@ -79,11 +79,18 @@
   .nw { white-space: nowrap; }
   .lede { margin-top: 26px; max-width: 46ch; font-size: clamp(19px, 1.7vw, 23px); font-weight: 500; }
   .band-chalk .lede { color: var(--ink-2); }
-  .team-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
-  .ach h3 { font-size: clamp(30px, 3vw, 44px); line-height: 1; margin-bottom: 22px; }
-  .ach ul { border-top: 5px solid var(--ink); }
-  .ach li { text-wrap: pretty; padding: 16px 0; font-weight: 600; font-size: clamp(18px, 1.45vw, 21px); line-height: 1.35; color: var(--ink); }
-  .ach li + li { border-top: 1px solid var(--chalk-line); }
+  /* honours board */
+  .team-top { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 6vw, 96px); align-items: end; }
+  .team-top .lede { margin-top: 0; padding-bottom: .4em; }
+  .team-top .h2 { font-size: clamp(56px, 9vw, 150px); line-height: .88; }
+  .board { margin-top: clamp(48px, 6vw, 88px); border-top: 5px solid var(--ink); }
+  .board h3 { font-size: clamp(22px, 1.9vw, 30px); line-height: 1; margin: 0; padding: 20px 0 clamp(18px, 2vw, 28px); color: var(--ink-2); }
+  .board ul { border-top: 1px solid var(--ink); counter-reset: none; }
+  .board li { text-wrap: pretty; font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; line-height: .98; font-size: clamp(25px, 4.4vw, 66px); padding: .26em 0 .22em; color: var(--ink); }
+  .board li + li { border-top: 1px solid var(--chalk-line); }
+  .board li:nth-child(2) { color: var(--red); }
+  @media (max-width: 960px) { .team-top { grid-template-columns: 1fr; gap: 24px; } .team-top .h2 { font-size: clamp(52px, 14vw, 110px); } }
+  @media (max-width: 560px) { .board li { font-size: clamp(25px, 7.4vw, 32px); line-height: 1.02; padding: .42em 0 .38em; } }
 
   /* ── гравчині збірної ───────────────────────── */
   .squad-h { font-size: clamp(42px, 5.8vw, 92px); max-width: 21ch; }
@@ -182,8 +189,6 @@
   @keyframes lift { from { opacity: 0; transform: translateY(12px); } }
 
   @media (max-width: 960px) {
-    .team-grid { grid-template-columns: 1fr; gap: 0; }
-    .ach { margin-top: 48px; }
     .names { grid-template-columns: repeat(2, 1fr); column-gap: 18px; }
     .person, .person-rev { grid-template-columns: 1fr; }
     .person-rev .person-photo { order: -1; }
@@ -233,24 +238,22 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <section class="band band-chalk" id="team" aria-labelledby="team-h">
   <div class="wrap">
-    <div class="team-grid">
-      <div>
-        <h2 class="display h2" id="team-h" data-i18n="team.h2">Потужна команда</h2>
+    <div class="team-top">
+      <h2 class="display h2" id="team-h" data-i18n="team.h2">Потужна команда</h2>
         <p class="lede" data-i18n="team.p">Усі наші гравчині вже виступали на змаганнях. Сильні, згуртовані й <span class="nw">по-справжньому</span> потужні.</p>
-      </div>
-      <div class="ach">
+    </div>
+    <div class="board">
         <h3 class="display" data-i18n="ach.h3">Досягнення команди</h3>
         <ul>
-          <li data-i18n="ach.1">Учасники Супер ліги чемпіонату України з регбі 7 серед жіночих команд</li>
-          <li data-i18n="ach.2">Чемпіони Вищої ліги чемпіонату України з регбі 7 серед жіночих команд</li>
-          <li data-i18n="ach.3">Учасники Кубків України з регбі 7 серед жіночих команд</li>
-          <li data-i18n="ach.4">Бронзові призери чемпіонату України Ю-21 з регбі 7 серед жіночих команд</li>
-          <li data-i18n="ach.5">Бронзові призери чемпіонату України Ю-18 з регбі 7 серед дівчат</li>
-          <li data-i18n="ach.6">Бронзові призери чемпіонату України Ю-16 з регбі 7 серед дівчат</li>
-          <li data-i18n="ach.7">Бронзові призери чемпіонату України Ю-14 з регбі 7 серед дівчат</li>
+          <li data-i18n="ach.1">Учасники Супер ліги чемпіонату України <span class="nw">з регбі 7</span> серед жіночих команд</li>
+          <li data-i18n="ach.2">Чемпіони Вищої ліги чемпіонату України <span class="nw">з регбі 7</span> серед жіночих команд</li>
+          <li data-i18n="ach.3">Учасники Кубків України <span class="nw">з регбі 7</span> серед жіночих команд</li>
+          <li data-i18n="ach.4">Бронзові призери чемпіонату України Ю-21 <span class="nw">з регбі 7</span> серед жіночих команд</li>
+          <li data-i18n="ach.5">Бронзові призери чемпіонату України Ю-18 <span class="nw">з регбі 7</span> серед дівчат</li>
+          <li data-i18n="ach.6">Бронзові призери чемпіонату України Ю-16 <span class="nw">з регбі 7</span> серед дівчат</li>
+          <li data-i18n="ach.7">Бронзові призери чемпіонату України Ю-14 <span class="nw">з регбі 7</span> серед дівчат</li>
         </ul>
       </div>
-    </div>
   </div>
 </section>
 
