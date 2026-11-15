@@ -96,11 +96,19 @@
   /* ── набір ──────────────────────────────────── */
   .join { overflow: hidden; }
   .join { padding-top: 0; }
-  .join-photo { width: 100%; aspect-ratio: 2 / 1; max-height: 760px; overflow: hidden; }
+  /* Fixed 2:1 crop (no max-height) so the framing is identical at every width; box capped at the 1600px source, never upscaled. */
+  .join-photo { width: 100%; max-width: 1600px; margin-inline: auto; aspect-ratio: 2 / 1; overflow: hidden; }
   .join-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 83%; filter: grayscale(1) contrast(1.08);
     -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); mask-image: linear-gradient(to bottom, #000 86%, transparent 100%); }
+  /* Wider than the source: the photo floats on the black band, so soften its side edges into it. */
+  @media (min-width: 1601px) { .join-photo img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to bottom, #000 86%, transparent 100%), linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-composite: intersect; } }
   .join .wrap { padding-top: clamp(32px, 4vw, 56px); }
-  @media (max-width: 640px) { .join-photo { aspect-ratio: 1600 / 1020; max-height: none; } }
+  /* At 1024px and below the 2:1 crop leaves under 60px above the coach, so show the natural, uncropped ratio. */
+  @media (max-width: 1024px) { .join-photo { aspect-ratio: 1600 / 1020; } }
   .band-black .lede { color: var(--mist); }
   .claims { margin-top: clamp(36px, 4vw, 52px); font-size: clamp(40px, 4.6vw, 70px); }
   .claims span { display: block; }
