@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Прикарпатські вовчиці | жіноче регбі, Івано-Франківськ</title>
+<title>ДЮСШ-2 «Прикарпатські вовчиці» | жіноче регбі, Івано-Франківськ</title>
 <meta name="description" content="ДЮСШ-2 «Прикарпатські вовчиці»: жіноча команда з регбі-7 в Івано-Франківську. Чемпіони Вищої ліги України. Постійний набір дівчат, тренування безкоштовні.">
 <meta name="theme-color" content="#131313">
 <link rel="canonical" href="https://if7g.pp.ua/">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Прикарпатські вовчиці">
-<meta property="og:title" content="Прикарпатські вовчиці | жіноче регбі, Івано-Франківськ">
+<meta property="og:site_name" content="ДЮСШ-2 «Прикарпатські вовчиці»">
+<meta property="og:title" content="ДЮСШ-2 «Прикарпатські вовчиці» | жіноче регбі, Івано-Франківськ">
 <meta property="og:description" content="ДЮСШ-2 «Прикарпатські вовчиці»: жіноча команда з регбі-7 в Івано-Франківську. Чемпіони Вищої ліги України. Постійний набір дівчат, тренування безкоштовні.">
 <meta property="og:image" content="https://if7g.pp.ua/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -83,12 +83,15 @@
   .hero-row { margin-top: clamp(24px, 3.4vh, 40px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap; }
   .hero-sub { max-width: 40ch; font-size: clamp(18px, 1.6vw, 22px); color: var(--mist); }
   .hero-sub b { color: #fff; font-weight: 700; }
-  /* головний спонсор: спокійна світла табличка з логотипом і підписом, без банера */
-  .hero-sponsor { display: grid; gap: 8px; justify-items: start; color: var(--mist); font-size: 15px; font-weight: 600; line-height: 1.2; }
-  .hero-sponsor span { transition: color .2s ease; }
-  .hero-sponsor img { width: 88px; height: 88px; background: #fff; padding: 4px; object-fit: contain; transition: transform .25s var(--ease-out); }
-  .hero-sponsor:active img { transform: scale(.97); }
-  .hero-sponsor:focus-visible { outline-color: #fff; }
+  /* головний спонсор: біла смуга одразу під першим екраном, як спонсорська смуга на регбійці */
+  .sponsor-hoop { display: block; background: #fff; color: var(--ink); border-bottom: 1px solid var(--chalk-line); }
+  .sh-in { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 3vw, 40px); padding-top: clamp(14px, 1.6vw, 22px); padding-bottom: clamp(14px, 1.6vw, 22px); }
+  .sh-label, .sh-kind { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; line-height: 1; font-size: clamp(18px, 1.9vw, 28px); }
+  .sh-label { color: var(--ink-2); }
+  .sh-kind { color: var(--ink); }
+  .sponsor-hoop img { height: clamp(64px, 6.4vw, 96px); width: auto; mix-blend-mode: multiply; transition: transform .25s var(--ease-out); }
+  .sponsor-hoop:active img { transform: scale(.97); }
+  .sponsor-hoop:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
 
 
   /* ── команда і досягнення ───────────────────── */
@@ -175,8 +178,8 @@
   .pfeature img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; mix-blend-mode: multiply; }
   .pf-name { font-size: clamp(46px, 5.8vw, 92px); line-height: .95; }
   .pf-kind { margin-top: 10px; font-size: clamp(18px, 1.6vw, 22px); font-weight: 500; color: var(--ink-2); }
-  .pf-links { margin-top: clamp(18px, 2vw, 28px); display: flex; flex-wrap: wrap; gap: 10px; }
-  .pf-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--ink); font-weight: 800; transition: background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+  .pf-links { margin-top: clamp(18px, 2vw, 28px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-width: 680px; }
+  .pf-links a { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--ink); font-weight: 800; transition: background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
   .pf-links a:active { transform: scale(.97); }
   .pf-links svg { width: 1em; height: 1em; flex: none; transition: transform .25s var(--ease-out); }
   .other-h { margin-top: clamp(36px, 4.4vw, 60px); font-size: clamp(26px, 2.6vw, 36px); line-height: 1; color: var(--ink-2); }
@@ -218,7 +221,7 @@
     a.pcard:hover { transform: translateY(-3px); border-color: var(--ink); }
     a.pcard:hover .go svg, .pf-links a:hover svg { transform: translate(3px, -3px); }
     .pf-links a:hover { background: var(--ink); color: #fff; }
-    .hero-sponsor:hover { color: #fff; }
+    .sponsor-hoop:hover img { transform: scale(1.03); }
     .map:hover iframe { filter: none; }
     .lang button[aria-pressed="false"]:hover { color: #fff; }
     .rows dd a:hover { text-decoration: underline; text-underline-offset: .2em; }
@@ -229,7 +232,6 @@
     .hero .line > span { animation: rise 1.05s var(--ease-out) both; }
     .hero .l2 > span { animation-delay: .1s; }
     .hero-sub { animation: lift .8s var(--ease-out) .42s both; }
-    .hero-sponsor { animation: lift .8s var(--ease-out) .55s both; }
   }
 
   @keyframes rise { from { transform: translateY(105%); } }
@@ -272,8 +274,9 @@
     .person-text p:not(.role) { margin-top: 12px; }
     .pfeature { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
     .pfeature img { width: 112px; }
-    .pf-links { display: grid; grid-template-columns: 1fr 1fr; }
-    .pf-links a { justify-content: space-between; }
+    .pf-links { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
+    .pf-links a { padding: 0 12px; }
+    .sh-kind { display: none; }
     .other-h { margin-top: 28px; }
     .contact { gap: 28px; }
     .contact .tel { margin-top: 18px; }
@@ -312,18 +315,25 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </header>
   <main id="top">
     <div class="wrap hero-body">
-      <img class="hero-emblem" src="img/flag.webp" alt="Прапор команди «Прикарпатські вовчиці»" data-i18n-alt="hero.flagalt" width="884" height="593" decoding="async">
+      <img class="hero-emblem" src="img/flag.webp" alt="Прапор команди ДЮСШ-2 «Прикарпатські вовчиці»" data-i18n-alt="hero.flagalt" width="884" height="593" decoding="async">
       <h1 class="display">
-        <span class="line l1"><span data-i18n="hero.l1">Прикарпатські вовчиці</span></span>
+        <span class="line l1"><span data-i18n="hero.l1"><span class="nw">ДЮСШ-2</span> <span class="nw">«Прикарпатські</span> <span class="nw">вовчиці»</span></span></span>
         <span class="line l2"><span data-i18n="hero.l2"><span class="nw">Жіноче регбі,</span> <span class="nw">Івано-Франківськ</span></span></span>
       </h1>
       <div class="hero-row">
       <p class="hero-sub" data-i18n="hero.sub"><b>Постійний набір дівчат, тренування безкоштовні.</b></p>
-      <a class="hero-sponsor" href="#partners"><span data-i18n="hero.sponsor">Головний спонсор</span><img src="img/herbalife.webp" alt="Herbalife24" width="232" height="232"></a>
       </div>
     </div>
   </main>
 </div>
+
+<a class="sponsor-hoop" href="#partners">
+  <span class="wrap sh-in">
+    <span class="sh-label" data-i18n="hero.sponsor">Головний спонсор</span>
+    <img src="img/herbalife.webp" alt="Herbalife24" width="232" height="232">
+    <span class="sh-kind" data-i18n="hero.sponsorKind">Спортивне харчування</span>
+  </span>
+</a>
 
 <section class="band band-chalk" id="team" aria-labelledby="team-h">
   <div class="wrap">
@@ -367,7 +377,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <section class="band band-black join" id="join" aria-labelledby="join-h">
   <div class="join-poster">
     <h2 class="display join-title" id="join-h" data-i18n="join.h2">Набір дівчат</h2>
-    <div class="join-photo"><img src="img/team.webp" alt="Команда «Прикарпатські вовчиці» на трибуні стадіону" data-i18n-alt="join.alt" width="1600" height="1020" loading="lazy"></div>
+    <div class="join-photo"><img src="img/team.webp" alt="Команда ДЮСШ-2 «Прикарпатські вовчиці» на трибуні стадіону" data-i18n-alt="join.alt" width="1600" height="1020" loading="lazy"></div>
   </div>
   <div class="wrap">
     <p class="lede" data-i18n="join.p">Команда ДЮСШ-2 «Прикарпатські вовчиці» постійно проводить набір дівчат у команди різного віку.</p>
@@ -385,7 +395,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <div class="person-text">
       <h2 class="display" id="coach-h" data-i18n="coach.h2">Микитюк Богдан Степанович</h2>
       <p class="role" data-i18n="coach.role">Тренер команди</p>
-      <p data-i18n="coach.p">Тренує «Прикарпатських вовчиць» і готує команду до чемпіонатів і кубків України.</p>
+      <p data-i18n="coach.p">Тренує команду ДЮСШ-2 «Прикарпатські вовчиці» і готує команду до чемпіонатів і кубків України.</p>
     </div>
   </div>
 </section>
@@ -459,6 +469,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     "hero.l2": "<span class=\"nw\">Women’s rugby,</span> <span class=\"nw\">Ivano-Frankivsk</span>",
     "hero.sub": "<b>We recruit girls all year round, and training is free.</b>",
     "hero.sponsor": "Main sponsor",
+    "hero.sponsorKind": "Sports nutrition",
     "team.h2": "A&nbsp;powerful team",
     "team.p": "Every one of our players has already competed. Strong, united and truly powerful.",
     "ach.h3": "Team achievements",
