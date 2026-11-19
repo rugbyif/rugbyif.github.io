@@ -83,15 +83,11 @@
   .hero-row { margin-top: clamp(24px, 3.4vh, 40px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap; }
   .hero-sub { max-width: 40ch; font-size: clamp(18px, 1.6vw, 22px); color: var(--mist); }
   .hero-sub b { color: #fff; font-weight: 700; }
-  /* головний спонсор: біла смуга одразу під першим екраном, як спонсорська смуга на регбійці */
-  .sponsor-hoop { display: block; background: #fff; color: var(--ink); border-bottom: 1px solid var(--chalk-line); }
-  .sh-in { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 3vw, 40px); padding-top: clamp(14px, 1.6vw, 22px); padding-bottom: clamp(14px, 1.6vw, 22px); }
-  .sh-label, .sh-kind { font-family: "Fira Sans Extra Condensed", sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; line-height: 1; font-size: clamp(18px, 1.9vw, 28px); }
-  .sh-label { color: var(--ink-2); }
-  .sh-kind { color: var(--ink); }
-  .sponsor-hoop img { height: clamp(64px, 6.4vw, 96px); width: auto; mix-blend-mode: multiply; transition: transform .25s var(--ease-out); }
-  .sponsor-hoop:active img { transform: scale(.97); }
-  .sponsor-hoop:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+  /* головний спонсор: світла табличка з логотипом праворуч від тексту, без підпису */
+  .hero-sponsor { display: block; flex: none; margin-left: auto; }
+  .hero-sponsor img { display: block; width: 124px; height: 124px; background: #fff; padding: 6px; object-fit: contain; transition: transform .25s var(--ease-out); }
+  .hero-sponsor:active img { transform: scale(.97); }
+  .hero-sponsor:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
 
 
   /* ── команда і досягнення ───────────────────── */
@@ -221,7 +217,7 @@
     a.pcard:hover { transform: translateY(-3px); border-color: var(--ink); }
     a.pcard:hover .go svg, .pf-links a:hover svg { transform: translate(3px, -3px); }
     .pf-links a:hover { background: var(--ink); color: #fff; }
-    .sponsor-hoop:hover img { transform: scale(1.03); }
+    .hero-sponsor:hover img { transform: scale(1.03); }
     .map:hover iframe { filter: none; }
     .lang button[aria-pressed="false"]:hover { color: #fff; }
     .rows dd a:hover { text-decoration: underline; text-underline-offset: .2em; }
@@ -232,6 +228,7 @@
     .hero .line > span { animation: rise 1.05s var(--ease-out) both; }
     .hero .l2 > span { animation-delay: .1s; }
     .hero-sub { animation: lift .8s var(--ease-out) .42s both; }
+    .hero-sponsor { animation: lift .8s var(--ease-out) .55s both; }
   }
 
   @keyframes rise { from { transform: translateY(105%); } }
@@ -262,7 +259,9 @@
     .brand span { text-wrap: balance; }
     .hero-body { padding-bottom: 32px; }
     .hero-emblem { margin-bottom: 18px; }
-    .hero-row { margin-top: 18px; gap: 18px; }
+    .hero-row { margin-top: 18px; gap: 16px; flex-wrap: nowrap; align-items: center; }
+    .hero-sub { flex: 1 1 auto; min-width: 0; }
+    .hero-sponsor img { width: 96px; height: 96px; padding: 5px; }
     .hero-sub { font-size: 18px; }
     .squad-h { font-size: clamp(36px, 10.4vw, 48px); }
     .names { margin-top: 24px; row-gap: 14px; }
@@ -276,7 +275,6 @@
     .pfeature img { width: 112px; }
     .pf-links { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; }
     .pf-links a { padding: 0 12px; }
-    .sh-kind { display: none; }
     .other-h { margin-top: 28px; }
     .contact { gap: 28px; }
     .contact .tel { margin-top: 18px; }
@@ -322,18 +320,11 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       </h1>
       <div class="hero-row">
       <p class="hero-sub" data-i18n="hero.sub"><b>Постійний набір дівчат, тренування безкоштовні.</b></p>
+      <a class="hero-sponsor" href="#partners"><img src="img/herbalife.webp" alt="Головний спонсор Herbalife24" data-i18n-alt="hero.sponsorAlt" width="232" height="232"></a>
       </div>
     </div>
   </main>
 </div>
-
-<a class="sponsor-hoop" href="#partners">
-  <span class="wrap sh-in">
-    <span class="sh-label" data-i18n="hero.sponsor">Головний спонсор</span>
-    <img src="img/herbalife.webp" alt="Herbalife24" width="232" height="232">
-    <span class="sh-kind" data-i18n="hero.sponsorKind">Спортивне харчування</span>
-  </span>
-</a>
 
 <section class="band band-chalk" id="team" aria-labelledby="team-h">
   <div class="wrap">
@@ -468,8 +459,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     "hero.l1": "Prykarpatski Vovchytsi",
     "hero.l2": "<span class=\"nw\">Women’s rugby,</span> <span class=\"nw\">Ivano-Frankivsk</span>",
     "hero.sub": "<b>We recruit girls all year round, and training is free.</b>",
-    "hero.sponsor": "Main sponsor",
-    "hero.sponsorKind": "Sports nutrition",
+    "hero.sponsorAlt": "Main sponsor Herbalife24",
     "team.h2": "A&nbsp;powerful team",
     "team.p": "Every one of our players has already competed. Strong, united and truly powerful.",
     "ach.h3": "Team achievements",
